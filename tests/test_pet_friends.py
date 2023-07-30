@@ -1,10 +1,10 @@
 import pytest
 
-from api import PetFriens
+from api import PetFriends
 from settings import valid_email, valid_password
 import os
 
-pf = PetFriens()
+pf = PetFriends()
 
 
 # Ниже 5 позитивных тестов

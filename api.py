@@ -3,15 +3,15 @@ import requests
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 
-class PetFriens:
-    """апи библиотека к веб приложению Pet Friends"""
+class PetFriends:
+    """Апи библиотека к вебу приложению Pet Friends"""
 
     def __init__(self):
         self.base_url = 'https://petfriends.skillfactory.ru/'
 
     def get_api_key(self, email: str, passwd: str) -> json:
         """Метод делает запрос к API сервера и возвращает статус запроса и результат в формате
-        JSON с уникальным ключем пользователя, найденного по указанным email и паролем"""
+        JSON с уникальным ключом пользователя, найденного по указанным email и паролем"""
 
         headers = {
             'email': email,
@@ -67,8 +67,8 @@ class PetFriens:
         return status, result
 
     def delete_pet(self, auth_key: json, pet_id: str) -> json:
-        """Метод отправляет на сервер запрос на удаление питомца по указанному ID и возвращает
-        статус запроса и результат в формате JSON с текстом уведомления о успешном удалении.
+        """Метод отправляет на сервер запрос на удаление питомца по-указанному ID и возвращает
+        статус запроса и результат в формате JSON с текстом уведомления об успешном удалении.
         На сегодняшний день тут есть баг - в result приходит пустая строка, но status при этом = 200"""
 
         headers = {'auth_key': auth_key['key']}
@@ -83,8 +83,8 @@ class PetFriens:
         return status, result
 
     def update_pet_info(self, auth_key: json, pet_id: str, name: str, animal_type: str, age: int):
-        """Метод отправляет запрос на сервер о обновлении данных питомца по указанному ID и
-        возвращает статус запроса и result в формате JSON с обновлённыи данными питомца"""
+        """Метод отправляет запрос на сервер об обновлении данных питомца по указанному ID и
+        возвращает статус запроса и result в формате JSON с обновлёнными данными питомца"""
         headers = {'auth_key': auth_key['key']}
         data = {
             'name': name,
